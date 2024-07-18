@@ -15,13 +15,13 @@ export default function Course() {
   };
   const submitData = () => {
     axios
-      .post("http://localhost:4000/course/createcourse", courseData)
+      .post("http://13.201.57.93:4000/course/createcourse", courseData)
       .then((res) => {
         if (res.data.success) {
           alert(res.data.message);
           setShow(false);
           axios
-          .get("http://localhost:4000/course/getallcourse")
+          .get("http://13.201.57.93:4000/course/getallcourse")
           .then((res) => {
             if (res.data.success) {
               setCourses(res.data.courses);
@@ -35,7 +35,7 @@ export default function Course() {
   };
   useEffect(() => {
     axios
-      .get("http://localhost:4000/course/getallcourse")
+      .get("http://13.201.57.93:4000/course/getallcourse")
       .then((res) => {
         if (res.data.success) {
           setCourses(res.data.courses);
