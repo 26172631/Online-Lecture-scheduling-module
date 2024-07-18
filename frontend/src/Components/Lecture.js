@@ -11,22 +11,22 @@ export default function Lecture() {
     setLecture({ ...lecture, [e.target.name]: e.target.value });
   };
   useEffect(() => {
-    axios.get('http://localhost:4000/course/getallcourse')
+    axios.get('http://13.201.57.93:4000/course/getallcourse')
         .then(response => setCourses(response.data.courses))
         .catch(error => console.error(error));
-    axios.get('http://localhost:4000/instructor/getallInstructor')
+    axios.get('http://13.201.57.93:4000/instructor/getallInstructor')
         .then(response => setInstructors(response.data.instructors))
         .catch(error => console.error(error));
 }, []);
   const submitData = () => {
     axios
-      .post("http://localhost:4000/lecture/assigncourse", lecture)
+      .post("http://13.201.57.93:4000/lecture/assigncourse", lecture)
       .then((res) => {
         if (res.data.success) {
           alert(res.data.message);
           setShow(false);
           axios
-          .get("http://localhost:4000/lecture/getAlllecture")
+          .get("http://13.201.57.93:4000/lecture/getAlllecture")
           .then((res) => {
             if (res.data.success) {
                 setLectures(res.data.lecture);
@@ -40,7 +40,7 @@ export default function Lecture() {
   };
   useEffect(() => {
     axios
-      .get("http://localhost:4000/lecture/getAlllecture")
+      .get("http://13.201.57.93:4000/lecture/getAlllecture")
       .then((res) => {
         if (res.data.success) {
             setLectures(res.data.lecture);
