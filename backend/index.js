@@ -3,7 +3,9 @@ const cors = require("cors")
 const mongoose = require("mongoose")
 const app = express()
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+    origin: "https://online-lecture-scheduling-module.netlify.app"
+}));
 app.use("/instructor",require("./routes/instructor"))
 app.use("/course",require("./routes/course"))
 app.use("/lecture",require("./routes/lecture"))
