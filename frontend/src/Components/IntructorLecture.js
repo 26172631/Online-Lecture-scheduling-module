@@ -7,7 +7,7 @@ export default function IntructorLecture() {
     let id = location?.state?._id
     const [lectures, setLectures] = useState([]);
     useEffect(() => {
-        axios.get(`http://localhost:4000/lecture/instructorLecture/${id}`)
+        axios.get(`http://13.201.57.93:4000/lecture/instructorLecture/${id}`)
             .then(response => setLectures(response.data.lecture))
             .catch(error => console.error(error));
     }, [id]);
