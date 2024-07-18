@@ -14,13 +14,13 @@ export default function AllInstructor() {
   };
   const submitData = () => {
     axios
-      .post("http://localhost:4000/instructor/createinstructor", userData)
+      .post("http://13.201.57.93:4000/instructor/createinstructor", userData)
       .then((res) => {
         if (res.data.success) {
           alert(res.data.message);
           setShow(false);
           axios
-          .get("http://localhost:4000/instructor/getallInstructor")
+          .get("http://13.201.57.93:4000/instructor/getallInstructor")
           .then((res) => {
             if (res.data.success) {
               setInstructor(res.data.instructors);
@@ -34,7 +34,7 @@ export default function AllInstructor() {
   };
   useEffect(() => {
     axios
-      .get("http://localhost:4000/instructor/getallInstructor")
+      .get("http://13.201.57.93:4000/instructor/getallInstructor")
       .then((res) => {
         if (res.data.success) {
           setInstructor(res.data.instructors);
